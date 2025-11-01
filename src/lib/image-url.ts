@@ -1,11 +1,11 @@
 /**
  * Image URL Helper
  * แปลง relative path จาก API เป็น absolute URL
- * ใช้ NEXT_PUBLIC_CDN_URL จาก environment variable
+ * ใช้ Custom Domain เท่านั้น ห้ามใช้ลิงก์อื่น
  */
 
-// CDN URL - ใช้จาก env หรือ fallback เป็น R2 direct URL
-const S3_BASE_URL = process.env.NEXT_PUBLIC_CDN_URL || 'https://pub-d8a73e1c5c024e809e7bea7ea94333f4.r2.dev';
+// Custom CDN Domain - ต้องใช้ domain นี้เท่านั้น (sv3.อ่านมังงะ.com)
+const S3_BASE_URL = 'https://sv3.xn--72ca6c8a8cwaef1r.com';
 
 /**
  * แปลง image path เป็น absolute URL (โหลดตรงจาก CDN ผ่าน Cloudflare Proxy)
