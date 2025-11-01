@@ -3,11 +3,11 @@
  * แปลง relative path จาก API เป็น absolute URL
  */
 
-// Custom CDN Domain (ใช้ของตัวเองผ่าน Cloudflare)
+// Custom CDN Domain (ใช้ของตัวเองผ่าน Cloudflare Proxy)
 const S3_BASE_URL = 'https://sbw.hydr4.me';
 
 /**
- * แปลง image path เป็น absolute URL
+ * แปลง image path เป็น absolute URL (โหลดตรงจาก CDN)
  */
 export function getImageUrl(path: string | null | undefined): string | null {
   if (!path) return null;
@@ -18,9 +18,7 @@ export function getImageUrl(path: string | null | undefined): string | null {
   }
   
   // ถ้าเป็น relative path ให้ต่อ base URL
-  // ลบ leading slash (ถ้ามี) เพราะ baseUrl มี trailing slash
   const cleanPath = path.startsWith('/') ? path.slice(1) : path;
-  
   return `${S3_BASE_URL}/${cleanPath}`;
 }
 
