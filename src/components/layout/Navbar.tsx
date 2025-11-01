@@ -28,7 +28,7 @@ export function Navbar() {
             </div>
             <div className="flex flex-col">
               <span className="text-2xl font-black bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 bg-clip-text text-transparent">
-                Hydra
+                อ่านมังงะ
               </span>
               <span className="text-xs text-gray-500 dark:text-gray-400 font-medium -mt-1">
                 อ่านการ์ตูนออนไลน์

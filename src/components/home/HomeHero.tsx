@@ -87,7 +87,7 @@ export function HomeHero({ featuredContent = [] }: HomeHeroProps) {
               ยินดีต้อนรับสู่
               <br />
               <span className="bg-gradient-to-r from-yellow-300 via-pink-300 to-purple-300 bg-clip-text text-transparent">
-                Hydra
+                อ่านมังงะ
               </span>
             </h1>
 

@@ -4,7 +4,7 @@ import { BookOpen, Users, Target, Heart } from 'lucide-react';
 
 export const metadata: Metadata = {
   title: 'เกี่ยวกับเรา',
-  description: 'Hydra - แพลตฟอร์มอ่านการ์ตูนและนิยายออนไลน์ฟรี มุ่งมั่นมอบประสบการณ์การอ่านที่ดีที่สุด',
+  description: 'อ่านมังงะ - แพลตฟอร์มอ่านการ์ตูนและนิยายออนไลน์ฟรี มุ่งมั่นมอบประสบการณ์การอ่านที่ดีที่สุด',
 };
 
 export default function AboutPage() {
@@ -12,7 +12,7 @@ export default function AboutPage() {
     <div className="max-w-4xl mx-auto space-y-8">
       <div className="text-center space-y-4">
         <h1 className="text-4xl md:text-5xl font-bold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
-          เกี่ยวกับ Hydra
+          เกี่ยวกับ อ่านมังงะ
         </h1>
         <p className="text-lg text-gray-600 dark:text-gray-400">
           แพลตฟอร์มอ่านการ์ตูนและนิยายออนไลน์ฟรีที่ดีที่สุด
@@ -28,7 +28,7 @@ export default function AboutPage() {
         </CardHeader>
         <CardContent>
           <p className="text-gray-700 dark:text-gray-300 leading-relaxed">
-            Hydra มุ่งมั่นที่จะเป็นแพลตฟอร์มอ่านการ์ตูนและนิยายออนไลน์ที่ดีที่สุด 
+            อ่านมังงะ มุ่งมั่นที่จะเป็นแพลตฟอร์มอ่านการ์ตูนและนิยายออนไลน์ที่ดีที่สุด 
             โดยมอบประสบการณ์การอ่านที่สะดวก รวดเร็ว และเข้าถึงได้ง่ายสำหรับทุกคน
             เราอัพเดทเนื้อหาใหม่ทุกวัน พร้อมรองรับทั้ง Manga, Manhwa, Manhua และ Novel
           </p>

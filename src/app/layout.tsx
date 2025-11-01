@@ -12,14 +12,14 @@ const notoSansThai = Noto_Sans_Thai({
 export const metadata: Metadata = {
   metadataBase: new URL(process.env.SITE_URL || 'http://localhost:3000'),
   title: {
-    default: "Hydra - อ่านการ์ตูนและนิยายออนไลน์ฟรี",
-    template: "%s | Hydra",
+    default: "อ่านมังงะ - อ่านการ์ตูนและนิยายออนไลน์ฟรี",
+    template: "%s | อ่านมังงะ",
   },
   description: "แพลตฟอร์มอ่านการ์ตูนและนิยายออนไลน์ฟรี อัพเดทตอนใหม่ทุกวัน พร้อมการ์ตูนยอดนิยมมากมาย",
-  keywords: ['การ์ตูน', 'นิยาย', 'manga', 'novel', 'อ่านการ์ตูน', 'อ่านนิยาย', 'การ์ตูนออนไลน์'],
-  authors: [{ name: 'Hydra Team' }],
-  creator: 'Hydra',
-  publisher: 'Hydra',
+  keywords: ['การ์ตูน', 'นิยาย', 'manga', 'novel', 'อ่านการ์ตูน', 'อ่านนิยาย', 'การ์ตูนออนไลน์', 'อ่านมังงะ'],
+  authors: [{ name: 'อ่านมังงะ' }],
+  creator: 'อ่านมังงะ',
+  publisher: 'อ่านมังงะ',
   robots: {
     index: true,
     follow: true,
@@ -35,15 +35,15 @@ export const metadata: Metadata = {
     type: 'website',
     locale: 'th_TH',
     url: '/',
-    title: 'Hydra - อ่านการ์ตูนและนิยายออนไลน์ฟรี',
+    title: 'อ่านมังงะ - อ่านการ์ตูนและนิยายออนไลน์ฟรี',
     description: 'แพลตฟอร์มอ่านการ์ตูนและนิยายออนไลน์ฟรี อัพเดทตอนใหม่ทุกวัน',
-    siteName: 'Hydra',
+    siteName: 'อ่านมังงะ',
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Hydra - อ่านการ์ตูนและนิยายออนไลน์ฟรี',
+    title: 'อ่านมังงะ - อ่านการ์ตูนและนิยายออนไลน์ฟรี',
     description: 'แพลตฟอร์มอ่านการ์ตูนและนิยายออนไลน์ฟรี อัพเดทตอนใหม่ทุกวัน',
-    creator: '@hydra',
+    creator: '@readmanga',
   },
   verification: {
     google: 'google-verification-code', // เปลี่ยนเป็นของจริง

@@ -4,7 +4,7 @@ import { HelpCircle } from 'lucide-react';
 
 export const metadata: Metadata = {
   title: 'วิธีใช้งาน',
-  description: 'คู่มือการใช้งาน Hydra - เรียนรู้วิธีอ่านการ์ตูนและใช้ฟีเจอร์ต่างๆ',
+  description: 'คู่มือการใช้งาน อ่านมังงะ - เรียนรู้วิธีอ่านการ์ตูนและใช้ฟีเจอร์ต่างๆ',
 };
 
 export default function HelpPage() {
@@ -14,7 +14,7 @@ export default function HelpPage() {
         <HelpCircle className="h-16 w-16 mx-auto text-primary" />
         <h1 className="text-4xl md:text-5xl font-bold">วิธีใช้งาน</h1>
         <p className="text-gray-600 dark:text-gray-400">
-          เรียนรู้วิธีใช้งาน Hydra ให้เต็มประสิทธิภาพ
+          เรียนรู้วิธีใช้งาน อ่านมังงะ ให้เต็มประสิทธิภาพ
         </p>
       </div>
 

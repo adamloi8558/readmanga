@@ -2,8 +2,8 @@ import { MetadataRoute } from 'next';
 
 export default function manifest(): MetadataRoute.Manifest {
   return {
-    name: 'Hydra - อ่านการ์ตูนและนิยายออนไลน์',
-    short_name: 'Hydra',
+    name: 'อ่านมังงะ - อ่านการ์ตูนและนิยายออนไลน์',
+    short_name: 'อ่านมังงะ',
     description: 'แพลตฟอร์มอ่านการ์ตูนและนิยายออนไลน์ฟรี อัพเดทตอนใหม่ทุกวัน',
     start_url: '/',
     display: 'standalone',

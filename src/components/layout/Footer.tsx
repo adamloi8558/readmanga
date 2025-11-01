@@ -36,7 +36,7 @@ export function Footer() {
               </div>
               <div className="flex flex-col">
                 <span className="text-2xl font-black bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 bg-clip-text text-transparent">
-                  Hydra
+                  อ่านมังงะ
                 </span>
                 <span className="text-xs text-gray-500 dark:text-gray-400">
                   อ่านการ์ตูนออนไลน์
@@ -104,7 +104,7 @@ export function Footer() {
         <div className="pt-8 border-t border-gray-200 dark:border-gray-800">
           <div className="flex flex-col md:flex-row justify-between items-center gap-4">
             <p className="text-sm text-gray-600 dark:text-gray-400">
-              {currentYear} © Hydra. All rights reserved.
+              {currentYear} © อ่านมังงะ. All rights reserved.
             </p>
             <div className="flex gap-6 text-sm">
               <Link
