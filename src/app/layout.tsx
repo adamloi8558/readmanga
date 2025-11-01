@@ -20,6 +20,13 @@ export const metadata: Metadata = {
   authors: [{ name: 'อ่านมังงะ' }],
   creator: 'อ่านมังงะ',
   publisher: 'อ่านมังงะ',
+  icons: {
+    icon: [
+      { url: '/favicon.ico', sizes: 'any' },
+      { url: '/favicon.png', type: 'image/png', sizes: '512x512' },
+    ],
+    apple: '/favicon.png',
+  },
   robots: {
     index: true,
     follow: true,
