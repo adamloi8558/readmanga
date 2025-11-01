@@ -3,8 +3,8 @@
  * แปลง relative path จาก API เป็น absolute URL
  */
 
-// S3 CDN Base URL (จาก Hydra API)
-const S3_BASE_URL = 'https://pub-d8a73e1c5c024e809e7bea7ea94333f4.r2.dev';
+// Custom CDN Domain (ใช้ของตัวเองผ่าน Cloudflare)
+const S3_BASE_URL = 'https://sbw.hydr4.me';
 
 /**
  * แปลง image path เป็น absolute URL
