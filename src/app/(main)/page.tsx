@@ -13,11 +13,11 @@ import { Metadata } from 'next';
 export const dynamic = 'force-dynamic';
 
 export const metadata: Metadata = {
-  title: 'Hydra - อ่านการ์ตูนและนิยายออนไลน์ฟรี',
+  title: 'อ่านมังงะ - อ่านการ์ตูนและนิยายออนไลน์ฟรี',
   description: 'แพลตฟอร์มอ่านการ์ตูนและนิยายออนไลน์ฟรี อัพเดทตอนใหม่ทุกวัน พร้อมการ์ตูนยอดนิยมมากกว่า 1,000 เรื่อง อ่านการ์ตูนไทย manga และนิยายแปลไทยคุณภาพสูง',
   keywords: ['การ์ตูน', 'นิยาย', 'manga', 'novel', 'อ่านการ์ตูน', 'อ่านนิยาย', 'การ์ตูนออนไลน์', 'manga online', 'อ่านการ์ตูนฟรี', 'การ์ตูนแปลไทย'],
   openGraph: {
-    title: 'Hydra - อ่านการ์ตูนและนิยายออนไลน์ฟรี',
+    title: 'อ่านมังงะ - อ่านการ์ตูนและนิยายออนไลน์ฟรี',
     description: 'แพลตฟอร์มอ่านการ์ตูนและนิยายออนไลน์ฟรี อัพเดทตอนใหม่ทุกวัน พร้อมการ์ตูนยอดนิยมมากกว่า 1,000 เรื่อง',
     type: 'website',
   },
@@ -61,18 +61,18 @@ async function HomeContent({ searchParams }: HomePageProps) {
       {/* SEO Content Block - ด้านบนสุด */}
       <div className="rounded-2xl bg-gradient-to-r from-gray-50 to-white dark:from-gray-900 dark:to-gray-800 p-6 md:p-8 border border-gray-200 dark:border-gray-700 shadow-sm">
         <h1 className="text-xl md:text-2xl lg:text-3xl font-bold text-gray-900 dark:text-white mb-3 md:mb-4">
-          อ่านการ์ตูนและนิยายออนไลน์ฟรีที่ Hydra
+          อ่านการ์ตูนและนิยายออนไลน์ฟรีที่ อ่านมังงะ
         </h1>
         <div className="prose prose-sm md:prose-base prose-gray dark:prose-invert max-w-none">
           <p className="text-sm md:text-base text-gray-700 dark:text-gray-300 leading-relaxed">
-            <strong>Hydra</strong> คือแพลตฟอร์มอ่านการ์ตูนและนิยายออนไลน์ฟรี ศูนย์รวมการ์ตูนยอดนิยม <strong>Manga</strong> <strong>Novel</strong> และ <strong>Webtoon </strong> 
+            <strong>อ่านมังงะ</strong> คือแพลตฟอร์มอ่านการ์ตูนและนิยายออนไลน์ฟรี ศูนย์รวมการ์ตูนยอดนิยม <strong>Manga</strong> <strong>Novel</strong> และ <strong>Webtoon </strong> 
             ที่ครบทุกแนว! อัพเดทตอนใหม่ทุกวัน พร้อมการ์ตูนยอดนิยมมากกว่า <strong>1,000+</strong> เรื่อง 
             อ่านฟรีไม่เสียเงิน เพียงแค่มีมือถือก็สามารถ<strong>อ่านการ์ตูนออนไลน์</strong>ได้ทุกที่ทุกเวลา 
             <strong>การ์ตูนแปลไทย</strong> <strong>การ์ตูนจีน</strong> <strong>การ์ตูนเกาหลี</strong> และ <strong>การ์ตูนญี่ปุ่น</strong> รวมถึง<strong>นิยายแปลไทย</strong>คุณภาพสูง 
             อ่านได้ทุกแพลตฟอร์ม ไม่ว่าจะเป็น <strong>Manga</strong> <strong>Manhwa</strong> <strong>Manhua</strong> หรือ <strong>Novel </strong> 
             พร้อมระบบค้นหาที่ดีที่สุด! กรองตามหมวดหมู่ จัดเรียงตามความนิยม คะแนน และวันที่อัพเดท 
             รองรับทั้งโหมดกลางวันและกลางคืน (Dark Mode) สำหรับการอ่านที่สบายตา 
-            อ่านการ์ตูนออนไลน์กับ <strong>Hydra</strong> วันนี้ ไม่ควรพลาด!
+            อ่านการ์ตูนออนไลน์กับ <strong>อ่านมังงะ</strong> วันนี้ ไม่ควรพลาด!
           </p>
         </div>
       </div>
