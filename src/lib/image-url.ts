@@ -3,11 +3,12 @@
  * แปลง relative path จาก API เป็น absolute URL
  */
 
-// Custom CDN Domain (ใช้ของตัวเองผ่าน Cloudflare Proxy)
-const S3_BASE_URL = 'https://sbw.hydr4.me';
+// Custom CDN Domain (ผ่าน Cloudflare Proxy)
+// ใช้ punycode สำหรับ domain ภาษาไทย
+const S3_BASE_URL = process.env.NEXT_PUBLIC_CDN_URL || 'https://sv3.xn--72ca6c8a8cwaef1r.com';
 
 /**
- * แปลง image path เป็น absolute URL (โหลดตรงจาก CDN)
+ * แปลง image path เป็น absolute URL (โหลดตรงจาก CDN ผ่าน Cloudflare Proxy)
  */
 export function getImageUrl(path: string | null | undefined): string | null {
   if (!path) return null;
