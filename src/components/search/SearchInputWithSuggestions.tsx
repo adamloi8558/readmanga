@@ -5,7 +5,6 @@ import { useRouter } from 'next/navigation';
 import { Search } from 'lucide-react';
 import { Input } from '@/components/ui/Input';
 import { Button } from '@/components/ui/Button';
-import { hydra } from '@/lib/hydra-client';
 
 interface SearchInputWithSuggestionsProps {
   defaultValue?: string;
@@ -31,8 +30,17 @@ export function SearchInputWithSuggestions({ defaultValue }: SearchInputWithSugg
 
       setIsLoading(true);
       try {
-        const response = await hydra.content.searchSuggestions({ q: query, limit: 10 });
-        setSuggestions(response.data || []);
+        // ใช้ API route แทนการเรียก hydra โดยตรง
+        const response = await fetch(
+          `/api/search/suggestions?q=${encodeURIComponent(query)}&limit=10`
+        );
+        
+        if (response.ok) {
+          const data = await response.json();
+          setSuggestions(data.suggestions || []);
+        } else {
+          setSuggestions([]);
+        }
       } catch (error) {
         console.error('Failed to fetch suggestions:', error);
         setSuggestions([]);
