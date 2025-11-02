@@ -1,7 +1,6 @@
 'use client';
 
 import { useRouter } from 'next/navigation';
-import Image from 'next/image';
 import Link from 'next/link';
 import { useEffect, useState } from 'react';
 import { ChevronLeft, ChevronRight, Home, List, Menu, Maximize2, Minimize2 } from 'lucide-react';
@@ -10,6 +9,7 @@ import { useReadingHistoryStore } from '@/store/readingHistoryStore';
 import { useAutoHide } from '@/hooks/useAutoHide';
 import { Button } from '@/components/ui/Button';
 import { Card, CardContent } from '@/components/ui/Card';
+import { WrapperImage } from '@/components/ui/WrapperImage';
 import { cn } from '@/lib/utils';
 import type { EpisodeWithContent, EpisodeMangaData, EpisodeNovelData } from '@/schemas';
 
@@ -157,13 +157,13 @@ export function ReaderClient({ episode, slug, no }: ReaderClientProps) {
           <div className="space-y-1 bg-black">
             {(episodeData as EpisodeMangaData).images.map((image, index) => (
               <div key={index} className="relative w-full">
-                <Image
+                <WrapperImage
                   src={image}
                   alt={`หน้า ${index + 1}`}
                   width={1200}
                   height={1800}
                   className="w-full h-auto"
-                  priority={index < 3}
+                  loading={index < 3 ? 'eager' : 'lazy'}
                 />
               </div>
             ))}
