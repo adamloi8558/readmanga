@@ -14,9 +14,19 @@ WORKDIR /app
 COPY --from=deps /app/node_modules ./node_modules
 COPY . .
 
+# Accept build arguments
+ARG API_KEY
+ARG BACKEND_API_URL
+ARG SITE_URL
+ARG NEXT_PUBLIC_CDN_URL
+
 # Set environment variables for build
 ENV NEXT_TELEMETRY_DISABLED=1
 ENV NODE_OPTIONS="--max-old-space-size=4096"
+ENV API_KEY=${API_KEY}
+ENV BACKEND_API_URL=${BACKEND_API_URL}
+ENV SITE_URL=${SITE_URL}
+ENV NEXT_PUBLIC_CDN_URL=${NEXT_PUBLIC_CDN_URL}
 
 # Build Next.js app
 RUN npm run build
@@ -27,6 +37,18 @@ WORKDIR /app
 
 ENV NODE_ENV=production
 ENV NEXT_TELEMETRY_DISABLED=1
+
+# Accept runtime arguments
+ARG API_KEY
+ARG BACKEND_API_URL
+ARG SITE_URL
+ARG NEXT_PUBLIC_CDN_URL
+
+# Set runtime environment variables
+ENV API_KEY=${API_KEY}
+ENV BACKEND_API_URL=${BACKEND_API_URL}
+ENV SITE_URL=${SITE_URL}
+ENV NEXT_PUBLIC_CDN_URL=${NEXT_PUBLIC_CDN_URL}
 
 # Create non-root user
 RUN addgroup --system --gid 1001 nodejs
