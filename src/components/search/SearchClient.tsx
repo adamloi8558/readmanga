@@ -1,10 +1,8 @@
 'use client';
 
-import { useState } from 'react';
 import { useRouter, useSearchParams } from 'next/navigation';
-import { Search as SearchIcon } from 'lucide-react';
 import { ContentGrid } from '@/components/content/ContentGrid';
-import { Input } from '@/components/ui/Input';
+import { SearchInputWithSuggestions } from '@/components/search/SearchInputWithSuggestions';
 import { Badge } from '@/components/ui/Badge';
 import type { ContentListResponse, Genre } from '@/schemas';
 
@@ -29,7 +27,6 @@ export function SearchClient({
 }: SearchClientProps) {
   const router = useRouter();
   const searchParams = useSearchParams();
-  const [query, setQuery] = useState(initialQuery);
 
   const sortOptions: { value: SortType; label: string }[] = [
     { value: 'relevance', label: 'ความเกี่ยวข้อง' },
@@ -52,28 +49,14 @@ export function SearchClient({
     router.push(`/search?${params.toString()}`);
   };
 
-  const handleSearch = (e: React.FormEvent) => {
-    e.preventDefault();
-    updateParams('q', query || undefined);
-  };
-
   return (
     <div className="space-y-8">
       {/* Search Header */}
       <div className="space-y-4">
         <h1 className="text-3xl font-bold">ค้นหาการ์ตูนและนิยาย</h1>
         
-        {/* Search Input */}
-        <form onSubmit={handleSearch} className="relative">
-          <SearchIcon className="absolute left-3 top-1/2 h-5 w-5 -translate-y-1/2 text-gray-400" />
-          <Input
-            type="search"
-            placeholder="ค้นหาชื่อเรื่อง, ผู้แต่ง, หรือคำอธิบาย..."
-            value={query}
-            onChange={(e) => setQuery(e.target.value)}
-            className="pl-10 text-lg h-12"
-          />
-        </form>
+        {/* Search Input with Autocomplete */}
+        <SearchInputWithSuggestions defaultValue={initialQuery} />
 
         {/* Search Info */}
         {initialData.search && (
@@ -149,7 +132,6 @@ export function SearchClient({
                   ค้นหา: {initialQuery}
                   <button
                     onClick={() => {
-                      setQuery('');
                       updateParams('q', undefined);
                     }}
                     className="ml-1 hover:text-red-600"

@@ -1,12 +1,11 @@
 'use client';
 
 import { useState, useEffect } from 'react';
-import Image from 'next/image';
 import Link from 'next/link';
 import { ChevronLeft, ChevronRight, Star, Eye, Zap } from 'lucide-react';
 import { Badge } from '@/components/ui/Badge';
+import { WrapperImage } from '@/components/ui/WrapperImage';
 import { formatNumber, normalizeRating } from '@/lib/utils';
-import { getImageUrl } from '@/lib/image-url';
 import type { Content } from '@/schemas';
 
 interface HomeHeroProps {
@@ -56,17 +55,15 @@ export function HomeHero({ featuredContent = [] }: HomeHeroProps) {
               backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='1'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")`,
             }} />
           </div>
-        ) : currentContent && getImageUrl(currentContent.coverImage || currentContent.thumbnailImage) ? (
+        ) : currentContent && (currentContent.coverImage || currentContent.thumbnailImage) ? (
           // Slide การ์ตูน - ใช้รูปปกของเรื่องนั้นๆ แบบ blur พื้นหลังดำ
           <>
-            <Image
+            <WrapperImage
               key={`bg-${currentContent.slug}`}
-              src={getImageUrl(currentContent.coverImage || currentContent.thumbnailImage)!}
+              src={(currentContent.coverImage || currentContent.thumbnailImage)!}
               alt={`${currentContent.name} background`}
-              fill
-              sizes="100vw"
-              className="object-cover blur-2xl scale-110 opacity-50"
-              priority
+              className="absolute inset-0 w-full h-full object-cover blur-2xl scale-110 opacity-50"
+              loading="eager"
             />
             <div className="absolute inset-0 bg-black/70" />
           </>
@@ -126,14 +123,14 @@ export function HomeHero({ featuredContent = [] }: HomeHeroProps) {
             {/* Left - Cover Image (แสดงทั้ง Mobile & Desktop) */}
             <div className="relative">
               <div className="relative aspect-[2/3] rounded-xl md:rounded-2xl overflow-hidden shadow-2xl ring-2 md:ring-4 ring-white/10">
-                {getImageUrl(currentContent.thumbnailImage || currentContent.coverImage) ? (
-                  <Image
-                    src={getImageUrl(currentContent.thumbnailImage || currentContent.coverImage)!}
+                {currentContent.thumbnailImage || currentContent.coverImage ? (
+                  <WrapperImage
+                    src={(currentContent.thumbnailImage || currentContent.coverImage)!}
                     alt={currentContent.name}
-                    fill
-                    sizes="(max-width: 768px) 180px, 300px"
-                    className="object-cover"
-                    priority
+                    width={300}
+                    height={450}
+                    className="absolute inset-0 w-full h-full object-cover"
+                    loading="eager"
                   />
                 ) : (
                   <div className="h-full bg-gradient-to-br from-gray-700 to-gray-900 flex items-center justify-center">

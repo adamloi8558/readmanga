@@ -1,13 +1,12 @@
 'use client';
 
 import Link from 'next/link';
-import Image from 'next/image';
 import { Star, Eye, Bookmark, Clock } from 'lucide-react';
 import { Card, CardContent } from '@/components/ui/Card';
 import { Badge } from '@/components/ui/Badge';
+import { WrapperImage } from '@/components/ui/WrapperImage';
 import type { Content, ContentSearch } from '@/schemas';
 import { formatNumber, getCompletionStatusText, getContentTypeText, normalizeRating } from '@/lib/utils';
-import { getImageUrl } from '@/lib/image-url';
 
 interface ContentCardProps {
   content: Content | ContentSearch;
@@ -20,14 +19,14 @@ export function ContentCard({ content }: ContentCardProps) {
     <Link href={`/manga/${content.slug}`} className="block h-full">
       <Card className="group overflow-hidden transition-all duration-300 hover:shadow-2xl hover:-translate-y-2 hover:scale-[1.02] border-0 bg-white dark:bg-gray-800 h-full flex flex-col">
         <div className="relative aspect-[3/4] overflow-hidden bg-gradient-to-br from-gray-100 to-gray-200 dark:from-gray-900 dark:to-gray-800 rounded-t-2xl">
-          {getImageUrl(content.thumbnailImage) ? (
+          {content.thumbnailImage ? (
             <>
-              <Image
-                src={getImageUrl(content.thumbnailImage)!}
+              <WrapperImage
+                src={content.thumbnailImage}
                 alt={content.name}
-                fill
-                className="object-cover transition-all duration-500 group-hover:scale-110 group-hover:brightness-110"
-                sizes="(max-width: 768px) 50vw, (max-width: 1200px) 33vw, 25vw"
+                width={400}
+                height={600}
+                className="absolute inset-0 w-full h-full object-cover transition-all duration-500 group-hover:scale-110 group-hover:brightness-110"
               />
               {/* Overlay on hover */}
               <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />

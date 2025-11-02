@@ -36,6 +36,7 @@ export default async function Image({ params }: { params: { slug: string } }) {
           >
             {/* Cover Image */}
             {content.thumbnailImage && (
+              // eslint-disable-next-line @next/next/no-img-element
               <img
                 src={content.thumbnailImage}
                 alt={content.name}

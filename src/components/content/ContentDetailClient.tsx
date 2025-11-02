@@ -1,7 +1,6 @@
 'use client';
 
 import { useRouter } from 'next/navigation';
-import Image from 'next/image';
 import Link from 'next/link';
 import { useState } from 'react';
 import { Star, Eye, Bookmark, Calendar, Play, BookmarkPlus, Share2, ArrowUpDown, Search } from 'lucide-react';
@@ -14,8 +13,8 @@ import { Input } from '@/components/ui/Input';
 import { RatingModal } from '@/components/content/RatingModal';
 import { StarRating } from '@/components/ui/StarRating';
 import { RecommendedSection } from '@/components/content/RecommendedSection';
+import { WrapperImage } from '@/components/ui/WrapperImage';
 import { formatNumber, getCompletionStatusText, getContentTypeText, formatDate, normalizeRating } from '@/lib/utils';
-import { getImageUrl } from '@/lib/image-url';
 import type { ContentDetail } from '@/schemas';
 
 interface ContentDetailClientProps {
@@ -84,14 +83,13 @@ export function ContentDetailClient({ content, allContent = [] }: ContentDetailC
       {/* Hero Section - ปรับปรุงให้หรูหรา */}
       <div className="relative overflow-hidden rounded-3xl bg-gradient-to-br from-gray-900 via-gray-800 to-black text-white shadow-2xl">
         {/* Background Image with Blur */}
-        {getImageUrl(content.coverImage) && (
+        {content.coverImage && (
           <>
             <div className="absolute inset-0">
-              <Image
-                src={getImageUrl(content.coverImage)!}
+              <WrapperImage
+                src={content.coverImage}
                 alt={content.name}
-                fill
-                className="object-cover opacity-20 blur-2xl scale-110"
+                className="absolute inset-0 w-full h-full object-cover opacity-20 blur-2xl scale-110"
               />
             </div>
             <div className="absolute inset-0 bg-gradient-to-t from-black via-black/80 to-black/60" />
@@ -103,13 +101,14 @@ export function ContentDetailClient({ content, allContent = [] }: ContentDetailC
           <div className="group relative">
             <div className="absolute inset-0 bg-gradient-to-br from-blue-600 to-purple-600 rounded-2xl blur-2xl opacity-50 group-hover:opacity-75 transition-opacity" />
             <div className="relative aspect-[3/4] overflow-hidden rounded-2xl shadow-2xl ring-4 ring-white/10 transform group-hover:scale-105 group-hover:rotate-1 transition-all duration-500">
-              {getImageUrl(content.thumbnailImage) ? (
-                <Image
-                  src={getImageUrl(content.thumbnailImage)!}
+              {content.thumbnailImage ? (
+                <WrapperImage
+                  src={content.thumbnailImage}
                   alt={content.name}
-                  fill
-                  className="object-cover"
-                  priority
+                  width={300}
+                  height={450}
+                  className="absolute inset-0 w-full h-full object-cover"
+                  loading="eager"
                 />
               ) : (
                 <div className="flex h-full items-center justify-center bg-gradient-to-br from-gray-700 to-gray-900">

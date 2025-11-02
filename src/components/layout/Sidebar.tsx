@@ -2,12 +2,11 @@
 
 import { useState } from 'react';
 import Link from 'next/link';
-import Image from 'next/image';
 import { TrendingUp, Star, Eye, Medal } from 'lucide-react';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/Card';
 import { Badge } from '@/components/ui/Badge';
+import { WrapperImage } from '@/components/ui/WrapperImage';
 import { formatNumber, normalizeRating } from '@/lib/utils';
-import { getImageUrl } from '@/lib/image-url';
 import { cn } from '@/lib/utils';
 import type { ContentStats } from '@/schemas';
 
@@ -93,13 +92,13 @@ export function Sidebar({ weeklyContent, monthlyContent, yearlyContent }: Sideba
 
                   {/* Thumbnail */}
                   <div className="relative w-12 h-16 flex-shrink-0 rounded-lg overflow-hidden shadow-md">
-                    {getImageUrl(item.thumbnailImage) ? (
-                      <Image
-                        src={getImageUrl(item.thumbnailImage)!}
+                    {item.thumbnailImage ? (
+                      <WrapperImage
+                        src={item.thumbnailImage}
                         alt={item.name}
-                        fill
-                        sizes="48px"
-                        className="object-cover"
+                        width={48}
+                        height={64}
+                        className="absolute inset-0 w-full h-full object-cover"
                       />
                     ) : (
                       <div className="h-full bg-gray-200 dark:bg-gray-700 flex items-center justify-center text-xl">
