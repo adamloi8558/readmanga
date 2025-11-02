@@ -29,8 +29,8 @@ export function WrapperImage({
   onLoad,
   onError,
 }: WrapperImageProps) {
-  // CDN Base URL จาก environment variable
-  const CDN_URL = process.env.NEXT_PUBLIC_CDN_URL || 'https://sv3.xn--72ca6c8a8cwaef1r.com';
+  // CDN Domain - ต้องใช้ custom domain นี้เท่านั้น (sv3.อ่านมังงะ.com)
+  const CDN_URL = 'https://sv3.xn--72ca6c8a8cwaef1r.com';
 
   // Build CDN URL
   let imageSrc = src;
