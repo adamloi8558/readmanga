@@ -6,6 +6,9 @@ import { TrendingUp, Star, Eye, Medal } from 'lucide-react';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/Card';
 import { Badge } from '@/components/ui/Badge';
 import { WrapperImage } from '@/components/ui/WrapperImage';
+import { AAds } from '@/components/ads/AAds';
+import { AD_ZONES } from '@/config/ad-zones';
+import { ADS_CONFIG } from '@/config/ads';
 import { formatNumber, normalizeRating } from '@/lib/utils';
 import { cn } from '@/lib/utils';
 import type { ContentStats } from '@/schemas';
@@ -144,6 +147,11 @@ export function Sidebar({ weeklyContent, monthlyContent, yearlyContent }: Sideba
           </div>
         </CardContent>
       </Card>
+
+      {/* โฆษณาข้างล่าง Sidebar */}
+      {ADS_CONFIG.enabled && ADS_CONFIG.positions.sidebarBottom && (
+        <AAds zoneId={AD_ZONES.SIDEBAR_BOTTOM} position="sidebar-bottom" width="100%" />
+      )}
     </aside>
   );
 }

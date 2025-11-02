@@ -5,6 +5,9 @@ import { HomeFilters } from '@/components/home/HomeFilters';
 import { HomeHero } from '@/components/home/HomeHero';
 import { RandomButton } from '@/components/content/RandomButton';
 import { Sidebar } from '@/components/layout/Sidebar';
+import { AAds } from '@/components/ads/AAds';
+import { AD_ZONES } from '@/config/ad-zones';
+import { ADS_CONFIG } from '@/config/ads';
 import { hydra } from '@/lib/hydra-client';
 import { getWeeklyDateRange, getMonthlyDateRange, getYearlyDateRange } from '@/lib/stats-helper';
 import { Metadata } from 'next';
@@ -79,6 +82,11 @@ async function HomeContent({ searchParams }: HomePageProps) {
 
       {/* Hero Section with Carousel */}
       <HomeHero featuredContent={contentData.data.slice(0, 5)} />
+
+      {/* โฆษณาใต้ Hero */}
+      {ADS_CONFIG.enabled && ADS_CONFIG.positions.homeBelowHero && (
+        <AAds zoneId={AD_ZONES.HOME_BELOW_HERO} position="home-below-hero" />
+      )}
 
       {/* Hidden SEO Content - Featured Manga */}
       <div className="sr-only" aria-hidden="true">

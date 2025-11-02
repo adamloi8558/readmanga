@@ -14,6 +14,9 @@ import { RatingModal } from '@/components/content/RatingModal';
 import { StarRating } from '@/components/ui/StarRating';
 import { RecommendedSection } from '@/components/content/RecommendedSection';
 import { WrapperImage } from '@/components/ui/WrapperImage';
+import { AAds } from '@/components/ads/AAds';
+import { AD_ZONES } from '@/config/ad-zones';
+import { ADS_CONFIG } from '@/config/ads';
 import { formatNumber, getCompletionStatusText, getContentTypeText, formatDate, normalizeRating } from '@/lib/utils';
 import type { ContentDetail } from '@/schemas';
 
@@ -245,6 +248,11 @@ export function ContentDetailClient({ content, allContent = [] }: ContentDetailC
             />
           </CardContent>
         </Card>
+      )}
+
+      {/* โฆษณาใต้เรื่องย่อ */}
+      {ADS_CONFIG.enabled && ADS_CONFIG.positions.contentBelowDescription && (
+        <AAds zoneId={AD_ZONES.CONTENT_BELOW_DESCRIPTION} position="content-below-description" />
       )}
 
       {/* Episodes List */}

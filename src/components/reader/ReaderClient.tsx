@@ -10,6 +10,9 @@ import { useAutoHide } from '@/hooks/useAutoHide';
 import { Button } from '@/components/ui/Button';
 import { Card, CardContent } from '@/components/ui/Card';
 import { WrapperImage } from '@/components/ui/WrapperImage';
+import { AAds } from '@/components/ads/AAds';
+import { AD_ZONES } from '@/config/ad-zones';
+import { ADS_CONFIG } from '@/config/ads';
 import { cn } from '@/lib/utils';
 import type { EpisodeWithContent, EpisodeMangaData, EpisodeNovelData } from '@/schemas';
 
@@ -155,18 +158,44 @@ export function ReaderClient({ episode, slug, no }: ReaderClientProps) {
         {isManga ? (
           // Manga Reader
           <div className="space-y-1 bg-black">
+            {/* โฆษณาบนสุดหน้าอ่าน */}
+            {ADS_CONFIG.enabled && ADS_CONFIG.positions.readerTop && (
+              <div className="bg-gray-900 py-4">
+                <AAds zoneId={AD_ZONES.READER_TOP} position="reader-top" width="100%" />
+              </div>
+            )}
+
             {(episodeData as EpisodeMangaData).images.map((image, index) => (
-              <div key={index} className="relative w-full">
-                <WrapperImage
-                  src={image}
-                  alt={`หน้า ${index + 1}`}
-                  width={1200}
-                  height={1800}
-                  className="w-full h-auto"
-                  loading={index < 3 ? 'eager' : 'lazy'}
-                />
+              <div key={index}>
+                <div className="relative w-full">
+                  <WrapperImage
+                    src={image}
+                    alt={`หน้า ${index + 1}`}
+                    width={1200}
+                    height={1800}
+                    className="w-full h-auto"
+                    loading={index < 3 ? 'eager' : 'lazy'}
+                  />
+                </div>
+                
+                {/* โฆษณาระหว่างภาพ (เปิด/ปิดได้ใน config) */}
+                {ADS_CONFIG.enabled && 
+                 ADS_CONFIG.positions.readerMiddle && 
+                 (index + 1) % ADS_CONFIG.frequency.readerMiddle === 0 && 
+                 index < (episodeData as EpisodeMangaData).images.length - 1 && (
+                  <div className="bg-gray-900 py-4">
+                    <AAds zoneId={AD_ZONES.READER_MIDDLE} position="reader-middle" width="100%" />
+                  </div>
+                )}
               </div>
             ))}
+
+            {/* โฆษณาล่างสุดหน้าอ่าน */}
+            {ADS_CONFIG.enabled && ADS_CONFIG.positions.readerBottom && (
+              <div className="bg-gray-900 py-4">
+                <AAds zoneId={AD_ZONES.READER_BOTTOM} position="reader-bottom" width="100%" />
+              </div>
+            )}
           </div>
         ) : (
           // Novel Reader
