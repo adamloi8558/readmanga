@@ -30,7 +30,7 @@ export function WrapperImage({
   onError,
 }: WrapperImageProps) {
   // CDN Domain - ต้องใช้ custom domain นี้เท่านั้น (sv3.อ่านมังงะ.com)
-  const CDN_URL = 'https://xn--72ca6c6a8cwaef1r.com';
+  const CDN_URL = 'https://sv3.xn--72ca6c6a8cwaef1r.com';
 
   // Build CDN URL
   let imageSrc = src;
