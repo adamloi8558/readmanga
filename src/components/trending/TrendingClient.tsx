@@ -3,6 +3,7 @@
 import { useRouter, useSearchParams } from 'next/navigation';
 import { Flame, Star, Eye } from 'lucide-react';
 import { ContentGrid } from '@/components/content/ContentGrid';
+import { Pagination } from '@/components/ui/Pagination';
 import type { ContentListResponse } from '@/schemas';
 
 type SortType = 'popularity' | 'rating' | 'recent';
@@ -79,29 +80,11 @@ export function TrendingClient({ initialData, initialSort, initialPage }: Trendi
 
       {/* Pagination */}
       {initialData.pagination && initialData.pagination.totalPages > 1 && (
-        <div className="flex justify-center">
-          <nav className="flex gap-2">
-            {initialPage > 1 && (
-              <a
-                href={`/trending?sort=${initialSort}&page=${initialPage - 1}`}
-                className="rounded-lg border px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-800 dark:border-gray-700"
-              >
-                ก่อนหน้า
-              </a>
-            )}
-            <span className="flex items-center px-4 text-sm text-gray-600 dark:text-gray-400">
-              หน้า {initialPage} / {initialData.pagination.totalPages}
-            </span>
-            {initialPage < initialData.pagination.totalPages && (
-              <a
-                href={`/trending?sort=${initialSort}&page=${initialPage + 1}`}
-                className="rounded-lg border px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-800 dark:border-gray-700"
-              >
-                ถัดไป
-              </a>
-            )}
-          </nav>
-        </div>
+        <Pagination
+          currentPage={initialPage}
+          totalPages={initialData.pagination.totalPages}
+          baseUrl={`/trending?sort=${initialSort}&`}
+        />
       )}
     </div>
   );

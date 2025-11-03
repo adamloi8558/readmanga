@@ -4,6 +4,7 @@ import { useRouter, useSearchParams } from 'next/navigation';
 import { ContentGrid } from '@/components/content/ContentGrid';
 import { SearchInputWithSuggestions } from '@/components/search/SearchInputWithSuggestions';
 import { Badge } from '@/components/ui/Badge';
+import { Pagination } from '@/components/ui/Pagination';
 import type { ContentListResponse, Genre } from '@/schemas';
 
 type SortType = 'relevance' | 'popularity' | 'rating' | 'recent' | 'alphabetical';
@@ -158,35 +159,14 @@ export function SearchClient({
 
           {/* Pagination */}
           {initialData.pagination && initialData.pagination.totalPages > 1 && (
-            <div className="flex justify-center">
-              <nav className="flex gap-2">
-                {initialPage > 1 && (
-                  <a
-                    href={`/search?${new URLSearchParams({
-                      ...Object.fromEntries(searchParams.entries()),
-                      page: (initialPage - 1).toString(),
-                    })}`}
-                    className="rounded-lg border px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-800 dark:border-gray-700"
-                  >
-                    ก่อนหน้า
-                  </a>
-                )}
-                <span className="flex items-center px-4 text-sm text-gray-600 dark:text-gray-400">
-                  หน้า {initialPage} / {initialData.pagination.totalPages}
-                </span>
-                {initialPage < initialData.pagination.totalPages && (
-                  <a
-                    href={`/search?${new URLSearchParams({
-                      ...Object.fromEntries(searchParams.entries()),
-                      page: (initialPage + 1).toString(),
-                    })}`}
-                    className="rounded-lg border px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-800 dark:border-gray-700"
-                  >
-                    ถัดไป
-                  </a>
-                )}
-              </nav>
-            </div>
+            <Pagination
+              currentPage={initialPage}
+              totalPages={initialData.pagination.totalPages}
+              baseUrl={`/search?${Array.from(searchParams.entries())
+                .filter(([key]) => key !== 'page')
+                .map(([key, value]) => `${key}=${value}`)
+                .join('&')}${searchParams.toString() ? '&' : ''}`}
+            />
           )}
         </div>
       </div>

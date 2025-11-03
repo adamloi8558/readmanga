@@ -8,6 +8,7 @@ import { Sidebar } from '@/components/layout/Sidebar';
 import { AAds } from '@/components/ads/AAds';
 import { AD_ZONES } from '@/config/ad-zones';
 import { ADS_CONFIG } from '@/config/ads';
+import { Pagination } from '@/components/ui/Pagination';
 import { hydra } from '@/lib/hydra-client';
 import { getWeeklyDateRange, getMonthlyDateRange, getYearlyDateRange } from '@/lib/stats-helper';
 import { Metadata } from 'next';
@@ -133,33 +134,11 @@ async function HomeContent({ searchParams }: HomePageProps) {
 
         {/* Pagination */}
         {contentData.pagination && contentData.pagination.totalPages > 1 && (
-          <div className="flex justify-center">
-            <nav className="flex gap-2" aria-label="Pagination">
-              {page > 1 && (
-                <a
-                  href={`/?sort=${sort}${genre ? `&genre=${genre}` : ''}&page=${page - 1}`}
-                  className="rounded-xl border border-gray-300 dark:border-gray-700 px-6 py-3 font-medium transition-all hover:bg-primary hover:text-white hover:border-primary hover:shadow-lg"
-                  rel="prev"
-                >
-                  ← ก่อนหน้า
-                </a>
-              )}
-              <div className="flex items-center px-6 py-3 rounded-xl bg-gray-100 dark:bg-gray-800 font-medium">
-                <span className="text-sm">
-                  หน้า <span className="text-primary font-bold">{page}</span> / {contentData.pagination.totalPages}
-                </span>
-              </div>
-              {page < contentData.pagination.totalPages && (
-                <a
-                  href={`/?sort=${sort}${genre ? `&genre=${genre}` : ''}&page=${page + 1}`}
-                  className="rounded-xl border border-gray-300 dark:border-gray-700 px-6 py-3 font-medium transition-all hover:bg-primary hover:text-white hover:border-primary hover:shadow-lg"
-                  rel="next"
-                >
-                  ถัดไป →
-                </a>
-              )}
-            </nav>
-          </div>
+          <Pagination
+            currentPage={page}
+            totalPages={contentData.pagination.totalPages}
+            baseUrl={`/?sort=${sort}${genre ? `&genre=${genre}` : ''}&`}
+          />
         )}
       </div>
       </div>
