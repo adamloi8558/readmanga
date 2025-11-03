@@ -4,7 +4,7 @@ import { Mail, MessageSquare, Send } from 'lucide-react';
 
 export const metadata: Metadata = {
   title: 'ติดต่อเรา',
-  description: 'ติดต่อทีมงาน Hydra - เรายินดีรับฟังความคิดเห็นและข้อเสนอแนะจากคุณ',
+  description: 'ติดต่อทีมงานอ่านมังงะ - เรายินดีรับฟังความคิดเห็นและข้อเสนอแนะจากคุณ',
 };
 
 export default function ContactPage() {
@@ -23,10 +23,10 @@ export default function ContactPage() {
             <Mail className="h-12 w-12 mx-auto mb-4 text-primary" />
             <h3 className="font-bold mb-2">อีเมล</h3>
             <a
-              href="mailto:support@hydra.com"
+              href="mailto:abuse@readmanga.com"
               className="text-primary hover:underline"
             >
-              support@hydra.com
+              abuse@readmanga.com
             </a>
           </CardContent>
         </Card>

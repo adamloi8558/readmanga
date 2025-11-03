@@ -3,7 +3,7 @@ import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/Card';
 
 export const metadata: Metadata = {
   title: 'ข้อตกลงการใช้งาน',
-  description: 'ข้อตกลงและเงื่อนไขการใช้งานเว็บไซต์ Hydra',
+  description: 'ข้อตกลงและเงื่อนไขการใช้งานเว็บไซต์อ่านมังงะ',
 };
 
 export default function TermsPage() {
@@ -22,7 +22,7 @@ export default function TermsPage() {
         </CardHeader>
         <CardContent className="prose dark:prose-invert max-w-none">
           <p>
-            การใช้งานเว็บไซต์ Hydra ถือว่าคุณยอมรับข้อตกลงและเงื่อนไขการใช้งานทั้งหมด
+            การใช้งานเว็บไซต์อ่านมังงะ ถือว่าคุณยอมรับข้อตกลงและเงื่อนไขการใช้งานทั้งหมด
           </p>
         </CardContent>
       </Card>
@@ -46,7 +46,7 @@ export default function TermsPage() {
         <CardContent className="prose dark:prose-invert max-w-none">
           <p>
             เนื้อหาทั้งหมดเป็นทรัพย์สินของเจ้าของลิขสิทธิ์ 
-            Hydra เป็นเพียงแพลตฟอร์มสำหรับการอ่านเท่านั้น
+            อ่านมังงะ เป็นเพียงแพลตฟอร์มสำหรับการอ่านเท่านั้น
           </p>
         </CardContent>
       </Card>
@@ -57,7 +57,7 @@ export default function TermsPage() {
         </CardHeader>
         <CardContent className="prose dark:prose-invert max-w-none">
           <p>
-            Hydra ไม่รับผิดชอบต่อความเสียหายใดๆ ที่เกิดจากการใช้งานเว็บไซต์
+            อ่านมังงะ ไม่รับผิดชอบต่อความเสียหายใดๆ ที่เกิดจากการใช้งานเว็บไซต์
           </p>
         </CardContent>
       </Card>

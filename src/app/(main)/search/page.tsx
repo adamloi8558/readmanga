@@ -7,7 +7,7 @@ import { SearchClient } from '@/components/search/SearchClient';
 export const dynamic = 'force-dynamic';
 
 export const metadata: Metadata = {
-  title: 'ค้นหาการ์ตูนและนิยาย | Hydra',
+  title: 'ค้นหาการ์ตูนและนิยาย',
   description: 'ค้นหาการ์ตูนและนิยายที่คุณชื่นชอบ ค้นหาได้ทั้งชื่อเรื่อง ผู้แต่ง และหมวดหมู่',
 };
 

@@ -3,7 +3,7 @@ import { apiAdapter } from '@/lib/api-adapter';
 
 // Open Graph Image สำหรับแชร์ Social Media
 export const runtime = 'edge';
-export const alt = 'Hydra Manga';
+export const alt = 'อ่านมังงะ';
 export const size = {
   width: 1200,
   height: 630,
@@ -91,7 +91,7 @@ export default async function Image({ params }: { params: { slug: string } }) {
                   display: 'inline-block',
                 }}
               >
-                อ่านบน Hydra
+                อ่านบน อ่านมังงะ
               </div>
             </div>
           </div>
@@ -116,7 +116,7 @@ export default async function Image({ params }: { params: { slug: string } }) {
           }}
         >
           <div style={{ fontSize: 80, fontWeight: 900, color: 'white' }}>
-            Hydra
+            อ่านมังงะ
           </div>
         </div>
       ),

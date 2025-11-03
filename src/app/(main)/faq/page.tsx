@@ -3,14 +3,14 @@ import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/Card';
 
 export const metadata: Metadata = {
   title: 'คำถามที่พบบ่อย (FAQ)',
-  description: 'คำถามที่พบบ่อยเกี่ยวกับ Hydra - แพลตฟอร์มอ่านการ์ตูนและนิยายออนไลน์',
+  description: 'คำถามที่พบบ่อยเกี่ยวกับอ่านมังงะ - แพลตฟอร์มอ่านการ์ตูนและนิยายออนไลน์',
 };
 
 export default function FAQPage() {
   const faqs = [
     {
-      q: 'Hydra คืออะไร?',
-      a: 'Hydra คือแพลตฟอร์มอ่านการ์ตูนและนิยายออนไลน์ฟรี อัพเดทตอนใหม่ทุกวัน',
+      q: 'อ่านมังงะ คืออะไร?',
+      a: 'อ่านมังงะ คือแพลตฟอร์มอ่านการ์ตูนและนิยายออนไลน์ฟรี อัพเดทตอนใหม่ทุกวัน',
     },
     {
       q: 'ใช้งานฟรีจริงหรือ?',

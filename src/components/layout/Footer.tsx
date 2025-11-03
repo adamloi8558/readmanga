@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import { BookOpen, Twitter, Facebook, Github } from 'lucide-react';
+import { BookOpen, Facebook, Send, MessageCircle } from 'lucide-react';
 
 export function Footer() {
   const currentYear = new Date().getFullYear();
@@ -49,16 +49,7 @@ export function Footer() {
             {/* Social Links */}
             <div className="flex gap-3">
               <a
-                href="https://twitter.com/hydra"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="p-2 rounded-lg bg-gray-100 dark:bg-gray-800 hover:bg-blue-500 hover:text-white transition-colors"
-                aria-label="Twitter"
-              >
-                <Twitter className="h-5 w-5" />
-              </a>
-              <a
-                href="https://facebook.com/hydra"
+                href="https://facebook.com/readmanga"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="p-2 rounded-lg bg-gray-100 dark:bg-gray-800 hover:bg-blue-600 hover:text-white transition-colors"
@@ -67,13 +58,22 @@ export function Footer() {
                 <Facebook className="h-5 w-5" />
               </a>
               <a
-                href="https://github.com/hydra"
+                href="https://t.me/readmanga"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="p-2 rounded-lg bg-gray-100 dark:bg-gray-800 hover:bg-gray-900 hover:text-white transition-colors"
-                aria-label="GitHub"
+                className="p-2 rounded-lg bg-gray-100 dark:bg-gray-800 hover:bg-blue-500 hover:text-white transition-colors"
+                aria-label="Telegram"
               >
-                <Github className="h-5 w-5" />
+                <Send className="h-5 w-5" />
+              </a>
+              <a
+                href="https://discord.gg/readmanga"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="p-2 rounded-lg bg-gray-100 dark:bg-gray-800 hover:bg-indigo-600 hover:text-white transition-colors"
+                aria-label="Discord"
+              >
+                <MessageCircle className="h-5 w-5" />
               </a>
             </div>
           </div>

@@ -2,7 +2,7 @@ import { Metadata } from 'next';
 import { BookmarksClient } from '@/components/bookmarks/BookmarksClient';
 
 export const metadata: Metadata = {
-  title: 'บุ๊คมาร์คของฉัน | Hydra',
+  title: 'บุ๊คมาร์คของฉัน',
   description: 'รายการการ์ตูนและนิยายที่คุณบันทึกไว้',
 };
 

@@ -16,7 +16,7 @@ export async function generateMetadata({ params }: ContentPageProps): Promise<Me
     const { data: content } = await apiAdapter.getContentBySlug(params.slug);
 
     return {
-      title: `${content.name} - อ่านการ์ตูนออนไลน์ | Hydra`,
+      title: `${content.name} - อ่านการ์ตูนออนไลน์`,
       description: content.shortDescription || content.description || `อ่าน ${content.name} ออนไลน์ฟรี`,
       keywords: [
         content.name,
@@ -40,7 +40,7 @@ export async function generateMetadata({ params }: ContentPageProps): Promise<Me
     };
   } catch {
     return {
-      title: 'ไม่พบเนื้อหา | Hydra',
+      title: 'ไม่พบเนื้อหา',
     };
   }
 }

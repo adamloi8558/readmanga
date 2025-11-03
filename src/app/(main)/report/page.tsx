@@ -4,7 +4,7 @@ import { AlertTriangle } from 'lucide-react';
 
 export const metadata: Metadata = {
   title: 'รายงานปัญหา',
-  description: 'รายงานปัญหาหรือข้อผิดพลาดในการใช้งาน Hydra',
+  description: 'รายงานปัญหาหรือข้อผิดพลาดในการใช้งานอ่านมังงะ',
 };
 
 export default function ReportPage() {
@@ -39,7 +39,7 @@ export default function ReportPage() {
           <CardTitle>วิธีรายงานปัญหา</CardTitle>
         </CardHeader>
         <CardContent className="prose dark:prose-invert max-w-none">
-          <p>กรุณาส่งข้อมูลดังนี้มาที่ <a href="mailto:support@hydra.com" className="text-primary">support@hydra.com</a>:</p>
+          <p>กรุณาส่งข้อมูลดังนี้มาที่ <a href="mailto:abuse@readmanga.com" className="text-primary">abuse@readmanga.com</a>:</p>
           <ul>
             <li>ประเภทปัญหา</li>
             <li>URL ของหน้าที่เจอปัญหา</li>
@@ -55,7 +55,7 @@ export default function ReportPage() {
 
       <div className="text-center">
         <p className="text-sm text-gray-600 dark:text-gray-400">
-          ขอบคุณที่ช่วยทำให้ Hydra ดีขึ้น! 🙏
+          ขอบคุณที่ช่วยทำให้ อ่านมังงะ ดีขึ้น! 🙏
         </p>
       </div>
     </div>

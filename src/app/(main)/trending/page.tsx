@@ -8,7 +8,7 @@ import { TrendingClient } from '@/components/trending/TrendingClient';
 export const dynamic = 'force-dynamic';
 
 export const metadata: Metadata = {
-  title: 'การ์ตูนยอดนิยม | Hydra',
+  title: 'การ์ตูนยอดนิยม',
   description: 'การ์ตูนและนิยายที่กำลังมาแรง ยอดนิยม และได้รับคะแนนสูงสุด',
 };
 

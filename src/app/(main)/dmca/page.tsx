@@ -24,7 +24,7 @@ export default function DMCAPage() {
         </CardHeader>
         <CardContent className="prose dark:prose-invert max-w-none">
           <p>
-            Hydra เคารพสิทธิ์ในทรัพย์สินทางปัญญา หากคุณเชื่อว่ามีเนื้อหาละเมิดลิขสิทธิ์ 
+            อ่านมังงะ เคารพสิทธิ์ในทรัพย์สินทางปัญญา หากคุณเชื่อว่ามีเนื้อหาละเมิดลิขสิทธิ์ 
             กรุณาติดต่อเราพร้อมข้อมูลดังนี้:
           </p>
           <ul>
@@ -34,7 +34,7 @@ export default function DMCAPage() {
             <li>คำยืนยันว่าคุณเป็นเจ้าของลิขสิทธิ์</li>
           </ul>
           <p className="font-semibold">
-            ส่งมาที่: <a href="mailto:dmca@hydra.com" className="text-primary">dmca@hydra.com</a>
+            ส่งมาที่: <a href="mailto:dmca@readmanga.com" className="text-primary">dmca@readmanga.com</a>
           </p>
         </CardContent>
       </Card>
