@@ -99,11 +99,11 @@ export function ContentDetailClient({ content, allContent = [] }: ContentDetailC
           </>
         )}
         
-        <div className="relative z-10 grid gap-8 p-8 md:p-12 md:grid-cols-[320px_1fr]">
-          {/* Cover Image with 3D Effect */}
-          <div className="group relative">
+        <div className="relative z-10 grid gap-8 p-6 md:p-12 md:grid-cols-[280px_1fr]">
+          {/* Cover Image with 3D Effect - Responsive */}
+          <div className="group relative mx-auto w-full max-w-[200px] md:max-w-none">
             <div className="absolute inset-0 bg-gradient-to-br from-blue-600 to-purple-600 rounded-2xl blur-2xl opacity-50 group-hover:opacity-75 transition-opacity" />
-            <div className="relative aspect-[3/4] overflow-hidden rounded-2xl shadow-2xl ring-4 ring-white/10 transform group-hover:scale-105 group-hover:rotate-1 transition-all duration-500">
+            <div className="relative aspect-[3/4] overflow-hidden rounded-2xl shadow-2xl ring-2 md:ring-4 ring-white/10 transform group-hover:scale-105 group-hover:rotate-1 transition-all duration-500">
               {content.thumbnailImage ? (
                 <WrapperImage
                   src={content.thumbnailImage}
@@ -115,7 +115,7 @@ export function ContentDetailClient({ content, allContent = [] }: ContentDetailC
                 />
               ) : (
                 <div className="flex h-full items-center justify-center bg-gradient-to-br from-gray-700 to-gray-900">
-                  <span className="text-8xl">📚</span>
+                  <span className="text-6xl md:text-8xl">📚</span>
                 </div>
               )}
             </div>
