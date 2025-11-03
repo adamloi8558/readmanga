@@ -66,31 +66,25 @@ export function Pagination({ currentPage, totalPages, baseUrl, className = '' }:
       <nav className="flex flex-wrap items-center justify-center gap-2" aria-label="Pagination">
         {/* First Page */}
         {currentPage > 1 && (
-          <Button
-            asChild
-            variant="outline"
-            size="icon"
-            className="h-10 w-10"
+          <a
+            href={`${baseUrl}page=1`}
+            className="inline-flex items-center justify-center h-10 w-10 rounded-lg border border-gray-300 dark:border-gray-700 hover:bg-primary hover:text-white hover:border-primary transition-all"
             title="หน้าแรก"
           >
-            <a href={`${baseUrl}page=1`}>
-              <ChevronsLeft className="h-4 w-4" />
-            </a>
-          </Button>
+            <ChevronsLeft className="h-4 w-4" />
+          </a>
         )}
 
         {/* Previous Page */}
         {currentPage > 1 && (
-          <Button
-            asChild
-            variant="outline"
-            className="h-10 px-4"
+          <a
+            href={`${baseUrl}page=${currentPage - 1}`}
+            rel="prev"
+            className="inline-flex items-center justify-center h-10 px-4 rounded-lg border border-gray-300 dark:border-gray-700 hover:bg-primary hover:text-white hover:border-primary transition-all"
           >
-            <a href={`${baseUrl}page=${currentPage - 1}`} rel="prev">
-              <ChevronLeft className="h-4 w-4 mr-1" />
-              ก่อนหน้า
-            </a>
-          </Button>
+            <ChevronLeft className="h-4 w-4 mr-1" />
+            ก่อนหน้า
+          </a>
         )}
 
         {/* Page Numbers */}
@@ -105,50 +99,49 @@ export function Pagination({ currentPage, totalPages, baseUrl, className = '' }:
 
           const isActive = page === currentPage;
           
+          if (isActive) {
+            return (
+              <span
+                key={page}
+                className="inline-flex items-center justify-center h-10 w-10 rounded-lg bg-primary text-white font-bold shadow-lg"
+              >
+                {page}
+              </span>
+            );
+          }
+          
           return (
-            <Button
+            <a
               key={page}
-              asChild={!isActive}
-              variant={isActive ? 'default' : 'outline'}
-              size="icon"
-              className={`h-10 w-10 ${isActive ? 'bg-primary text-white' : ''}`}
+              href={`${baseUrl}page=${page}`}
+              className="inline-flex items-center justify-center h-10 w-10 rounded-lg border border-gray-300 dark:border-gray-700 hover:bg-primary hover:text-white hover:border-primary transition-all"
             >
-              {isActive ? (
-                <span>{page}</span>
-              ) : (
-                <a href={`${baseUrl}page=${page}`}>{page}</a>
-              )}
-            </Button>
+              {page}
+            </a>
           );
         })}
 
         {/* Next Page */}
         {currentPage < totalPages && (
-          <Button
-            asChild
-            variant="outline"
-            className="h-10 px-4"
+          <a
+            href={`${baseUrl}page=${currentPage + 1}`}
+            rel="next"
+            className="inline-flex items-center justify-center h-10 px-4 rounded-lg border border-gray-300 dark:border-gray-700 hover:bg-primary hover:text-white hover:border-primary transition-all"
           >
-            <a href={`${baseUrl}page=${currentPage + 1}`} rel="next">
-              ถัดไป
-              <ChevronRight className="h-4 w-4 ml-1" />
-            </a>
-          </Button>
+            ถัดไป
+            <ChevronRight className="h-4 w-4 ml-1" />
+          </a>
         )}
 
         {/* Last Page */}
         {currentPage < totalPages && (
-          <Button
-            asChild
-            variant="outline"
-            size="icon"
-            className="h-10 w-10"
+          <a
+            href={`${baseUrl}page=${totalPages}`}
+            className="inline-flex items-center justify-center h-10 w-10 rounded-lg border border-gray-300 dark:border-gray-700 hover:bg-primary hover:text-white hover:border-primary transition-all"
             title="หน้าสุดท้าย"
           >
-            <a href={`${baseUrl}page=${totalPages}`}>
-              <ChevronsRight className="h-4 w-4" />
-            </a>
-          </Button>
+            <ChevronsRight className="h-4 w-4" />
+          </a>
         )}
       </nav>
 

@@ -33,12 +33,12 @@ export const ADS_CONFIG = {
     readerBottom: true,         // ✅ ล่างสุด (หลังภาพสุดท้าย)
     
     // === หน้าค้นหา ===
-    searchTop: false,           // บนสุดหน้าค้นหา
-    searchBelowFilters: false,  // ใต้ Filters
+    searchTop: true,           // บนสุดหน้าค้นหา
+    searchBelowFilters: true,  // ใต้ Filters
     
     // === อื่นๆ ===
-    bookmarksTop: false,        // หน้า Bookmarks
-    trendingTop: false,         // หน้า Trending
+    bookmarksTop: true,        // หน้า Bookmarks
+    trendingTop: true,         // หน้า Trending
   },
 
   // ⚙️ ความถี่ในการแสดง
