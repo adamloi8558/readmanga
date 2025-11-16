@@ -41,6 +41,7 @@ export const episodeDetailSchema = episodeSchema.extend({
 export const episodeWithContentSchema = episodeDetailSchema.extend({
   content: z.lazy(() => {
     // Import here to avoid circular dependency
+    // eslint-disable-next-line @typescript-eslint/no-require-imports
     const { contentSchema } = require('./content')
     return contentSchema
   }),
