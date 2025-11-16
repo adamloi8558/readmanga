@@ -1,5 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server';
-import { hydra } from '@/lib/hydra-client';
+import { createHydraClient } from '@/lib/hydra-client';
+import { getTenantInfo } from '@/lib/tenant';
 
 export async function GET(request: NextRequest) {
   try {
@@ -10,6 +11,10 @@ export async function GET(request: NextRequest) {
     if (!q) {
       return NextResponse.json({ suggestions: [] });
     }
+
+    // Create tenant-aware Hydra client
+    const tenant = getTenantInfo(request);
+    const hydra = createHydraClient(tenant.hostname, tenant.ipAddress, tenant.userAgent);
 
     const response = await hydra.content.searchSuggestions({ q, limit });
     

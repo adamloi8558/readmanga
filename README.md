@@ -8,6 +8,7 @@
 
 - 📚 **อ่านการ์ตูนและนิยาย** - รองรับทั้ง MANGA และ NOVEL
 - 🚀 **Server-Side Rendering (SSR)** - โหลดเร็ว SEO ดีเยี่ยม
+- 🏢 **Multi-Tenant Support** - รองรับหลาย domain/website บน API เดียว
 - 🔍 **ค้นหาอัจฉริยะ** - ค้นหาด้วยชื่อเรื่อง ผู้แต่ง หรือคำอธิบาย
 - 🏷️ **กรองตามหมวดหมู่** - จัดหมวดหมู่ที่ชัดเจน
 - 📊 **สถิติและอันดับ** - ดูการ์ตูนยอดนิยม คะแนนสูงสุด
@@ -99,8 +100,9 @@ Hydra/
 │   │   ├── useTheme.ts         # Theme management
 │   │   └── useDebounce.ts      # Debounce utility
 │   ├── lib/                  # Utilities & API
-│   │   ├── hydra-client.ts   # Hydra API Client (Official)
+│   │   ├── hydra-client.ts   # Hydra API Client (Multi-tenant support)
 │   │   ├── api-adapter.ts    # API Adapter สำหรับ Next.js
+│   │   ├── tenant.ts         # Tenant utilities
 │   │   └── utils.ts          # Helper functions
 │   ├── store/                # Zustand State Management
 │   │   ├── bookmarkStore.ts      # Bookmark management
@@ -326,16 +328,41 @@ CMD ["npm", "start"]
 
 ### Official API Client
 
-โปรเจ็กต์ใช้ **Hydra API Client** อย่างเป็นทางการ:
+โปรเจ็กต์ใช้ **Hydra API Client** อย่างเป็นทางการ พร้อมรองรับ **Multi-Tenant**:
 
 ```typescript
-import { hydra } from '@/lib/hydra-client';
+// ✅ แนะนำ: Tenant-aware (Server Components)
+import { createHydraClientAsync } from '@/lib/hydra-client';
 
-// Server-side
+const hydra = await createHydraClientAsync();
 const content = await hydra.content.getBySlug('one-piece');
-const genres = await hydra.genre.list();
-const episode = await hydra.episode.getBySlugAndNo('one-piece', 1);
+
+// ✅ สำหรับ API Routes
+import { createHydraClient } from '@/lib/hydra-client';
+import { getTenantInfo } from '@/lib/tenant';
+
+export async function GET(request: NextRequest) {
+  const tenant = getTenantInfo(request);
+  const hydra = createHydraClient(
+    tenant.hostname,
+    tenant.ipAddress,
+    tenant.userAgent
+  );
+  
+  const content = await hydra.content.list({ page: 1 });
+  return NextResponse.json(content);
+}
 ```
+
+### Multi-Tenant System
+
+ระบบส่ง tenant information ไปยัง Hydra API:
+
+- **X-HYDRA-HOST**: Domain ของผู้ใช้ (เช่น example.com)
+- **X-HYDRA-IP**: IP Address ของผู้ใช้
+- **X-HYDRA-USER-AGENT**: User Agent ของ browser
+
+**📚 อ่านเพิ่มเติม:** [TENANT-SYSTEM.md](./TENANT-SYSTEM.md)
 
 ### Type Safety
 

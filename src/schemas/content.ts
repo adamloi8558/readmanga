@@ -126,6 +126,29 @@ export const contentBookmarkRequestSchema = z.object({
 // POST /content/:slug/bookmark response
 export const contentBookmarkResponseSchema = messageResponseSchema
 
+// GET /content/:slug/recommendations request
+export const contentRecommendationsRequestSchema = z.object({
+  slug: z.string().min(1).max(255),
+  limit: z.coerce.number().int().positive().max(20).default(10),
+})
+
+// GET /content/:slug/recommendations response
+export const contentRecommendationsResponseSchema = z.object({
+  data: z.array(
+    contentSchema.extend({
+      episodes: z.array(
+        episodeSchema.pick({
+          id: true,
+          name: true,
+          no: true,
+          createdAt: true,
+          updatedAt: true,
+        })
+      ),
+    })
+  ),
+})
+
 // Types
 export type Content = z.infer<typeof contentSchema>
 export type ContentDetail = z.infer<typeof contentDetailSchema>
@@ -148,4 +171,10 @@ export type ContentBookmarkRequest = z.infer<
 >
 export type ContentBookmarkResponse = z.infer<
   typeof contentBookmarkResponseSchema
+>
+export type ContentRecommendationsRequest = z.infer<
+  typeof contentRecommendationsRequestSchema
+>
+export type ContentRecommendationsResponse = z.infer<
+  typeof contentRecommendationsResponseSchema
 >

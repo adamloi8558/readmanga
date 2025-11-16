@@ -10,7 +10,9 @@ export interface HydraClientConfig {
   baseURL: string
   apiKey: string
   timeout?: number
-  ipAddress?: string
+  ipAddress: string
+  tenantHost: string
+  userAgent: string
 }
 
 /**
@@ -29,19 +31,31 @@ export class HydraClient {
   private client: AxiosInstance
 
   constructor(config: HydraClientConfig) {
-    const { baseURL, apiKey, timeout = 30000, ipAddress } = config
+    const {
+      baseURL,
+      apiKey,
+      timeout = 30000,
+      ipAddress,
+      tenantHost,
+      userAgent,
+    } = config
 
     this.apiKey = apiKey
+
+    // Build headers
+    const headers: Record<string, string> = {
+      'Content-Type': 'application/json',
+      Authorization: `Bearer ${apiKey}`,
+      'X-HYDRA-IP': ipAddress,
+      'X-HYDRA-USER-AGENT': userAgent,
+      'X-HYDRA-HOST': tenantHost,
+    }
 
     // Create axios instance
     this.client = axios.create({
       baseURL,
       timeout,
-      headers: {
-        'Content-Type': 'application/json',
-        Authorization: `Bearer ${apiKey}`,
-        'X-HYDRA-IP': ipAddress,
-      },
+      headers,
     })
 
     // Initialize services

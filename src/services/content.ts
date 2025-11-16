@@ -5,6 +5,7 @@ import type {
   ContentDetailResponse,
   ContentListRequest,
   ContentListResponse,
+  ContentRecommendationsResponse,
   ContentStarResponse,
   ContentStatsRequest,
   ContentStatsResponse,
@@ -102,6 +103,21 @@ export class ContentService {
     return apiRequest<ContentBookmarkResponse>(this.client, {
       method: 'POST',
       url: `/content/${slug}/bookmark`,
+    })
+  }
+
+  /**
+   * Get content recommendations
+   * GET /content/:slug/recommendations
+   */
+  async recommendations(
+    slug: string,
+    limit?: number
+  ): Promise<ContentRecommendationsResponse> {
+    return apiRequest<ContentRecommendationsResponse>(this.client, {
+      method: 'GET',
+      url: `/content/${slug}/recommendations`,
+      params: { limit },
     })
   }
 }
