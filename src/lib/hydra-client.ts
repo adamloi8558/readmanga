@@ -8,7 +8,6 @@
  * - ส่ง tenantHost, ipAddress, userAgent ไปยัง Hydra API
  */
 
-import { headers } from 'next/headers';
 import { HydraClient } from '@/services/hydra-client';
 
 // Hydra API Configuration (Server-side only)
@@ -53,6 +52,8 @@ export function createHydraClient(
  * const content = await hydra.content.list({ page: 1, limit: 20 });
  */
 export async function createHydraClientAsync(): Promise<HydraClient> {
+  // Dynamic import to avoid importing at module level
+  const { headers } = await import('next/headers');
   const headersList = await headers();
   
   const hostname =
